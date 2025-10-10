@@ -64,21 +64,21 @@ bool ArrayStack<T>::isFull() const {
 template <typename T>
 T ArrayStack<T>::peek() const {
     // TODO
-    if (this->length == 0) throw string("Empty Stack");
+    if (this->length == 0) throw string("peek: error, stack is empty, cannot access the top");
     return buffer[this->length - 1];
 }
 
 template <typename T>
 void ArrayStack<T>::pop() {
     // TODO
-    if (this->length == 0) throw string("Can't pop. The stack is empty");
+    if (this->length == 0) throw string("pop: error, stack is empty, avoiding underflow");
     this->length--;
 }
 
 template <typename T>
 void ArrayStack<T>::push(const T& elem) {
     // TODO
-    if (this->length + 1 > maxSize) throw string("Stack Overflow");
+    if (this->length + 1 > maxSize) throw string("push: error, stack is full, avoiding overflow");
     buffer[this->length] = elem;
     this->length++;
 }
